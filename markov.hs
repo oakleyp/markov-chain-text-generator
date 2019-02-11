@@ -59,14 +59,15 @@ dictToString' origText dict n max = do
 main :: IO ()
 main = do
   let maxW = 300
-  let n = 2
+  let n = 3
+  inputFile <- getLine >>= readFile
 
-  let wordsIn = words "Haskell is a magical fucking beast laddy boy eh. Haskell is some kinda bitch motherfucker."
+  let wordsIn = words inputFile
   let wordDict = wordsToDict wordsIn n
   let wordMap = buildMap wordDict
 
-  print wordDict
-  print $ processMap wordDict
-  print $ wordMap
+  -- print wordDict
+  -- print $ processMap wordDict
+  -- print $ wordMap
   result <- dictToString wordsIn wordMap n maxW
   putStrLn result
